@@ -4,8 +4,13 @@ Phase 1~3 전체를 고려해 설계한 디렉토리 구조. Next.js App Router 
 
 ```
 fleet_web/
-├── ROADMAP.md                 # Phase별 목표/기능/기술 스택
-├── STRUCTURE.md              # 이 문서
+├── README.md                  # 저장소 진입점, 문서 안내
+├── AGENTS.md / CLAUDE.md       # AI 코딩 에이전트용 컨텍스트
+├── docs/
+│   ├── ROADMAP.md              # Phase별 목표/기능/기술 스택
+│   ├── STRUCTURE.md            # 이 문서
+│   ├── WBS.md                  # 하루 30분 단위 작업 분해
+│   └── FEATURES.md             # 기능 명세서 (WBS와 1:1 대응하는 상세 스펙)
 ├── mock-server/               # 로봇 좌표/상태/이벤트를 발행하는 별도 Node 프로세스
 ├── src/
 │   ├── app/                   # Next.js 라우트 (페이지, 레이아웃)

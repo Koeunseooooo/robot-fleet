@@ -5,7 +5,7 @@ description: fleet_web(Mini-Fleet) 세션 종료 시 오늘 작업한 내용을 
 
 # Obsidian TIL / Daily Report 자동 기록
 
-fleet_web 프로젝트는 학습 목적 사이드 프로젝트다. 하루 작업 단위(WBS.md의 Day 1개, 또는 그 이상)가 끝날 때마다 두 개의 서로 다른 문서를 Obsidian vault에 작성한다. 같은 날 이미 파일이 있으면 **덮어쓰지 말고 이어서 추가**한다 (하루에 여러 세션이 있을 수 있음).
+fleet_web 프로젝트는 학습 목적 사이드 프로젝트다. 하루 작업 단위(docs/WBS.md의 Day 1개, 또는 그 이상)가 끝날 때마다 두 개의 서로 다른 문서를 Obsidian vault에 작성한다. 같은 날 이미 파일이 있으면 **덮어쓰지 말고 이어서 추가**한다 (하루에 여러 세션이 있을 수 있음).
 
 - Vault 루트: `/Users/koeunseo/Documents/Obsidian Vault/sideproj/fleet_web/`
 - TIL 경로: `TIL/{YYYY-MM-DD}.md`
@@ -14,7 +14,7 @@ fleet_web 프로젝트는 학습 목적 사이드 프로젝트다. 하루 작업
 
 ## 1. TIL (`TIL/{YYYY-MM-DD}.md`) — 무엇을 했는가
 
-이번 세션에서 실제로 진행한 작업(코드 변경, 설정, 디버깅, 결정 사항)을 정리한다. WBS.md에서 해당하는 Day 번호가 있으면 함께 표기한다.
+이번 세션에서 실제로 진행한 작업(코드 변경, 설정, 디버깅, 결정 사항)을 정리한다. docs/WBS.md에서 해당하는 Day 번호가 있으면 함께 표기한다.
 
 템플릿:
 
