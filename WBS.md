@@ -25,8 +25,8 @@
 | 4 | Mock 서버: 로봇 좌표 랜덤 이동 로직 (REST) | `GET /robots` 호출 시 좌표 변화 | ⬜ 예정 |
 | 5 | Mock 서버: 로봇 상태(Running/Error/Charging) 랜덤 전환 로직 | 상태값이 주기적으로 바뀜 | ⬜ 예정 |
 | 6 | FE 타입 정의 (`Robot`/`Position`/`RobotStatus`) | `src/types` 작성 | ⬜ 예정 |
-| 7 | Zustand `robotStore` 설계 및 기본 구현 | 스토어 상태 콘솔 확인 | ⬜ 예정 |
-| 8 | Polling 훅(`useRobotPolling`) 구현 + mock 서버 연동 | 0.5초 주기로 store 갱신 확인 | ⬜ 예정 |
+| 7 | Zustand `robotStore` 설계 및 기본 구현 (실시간 좌표/상태, 선택 로봇, 뷰 모드) | 스토어 상태 콘솔 확인 | ⬜ 예정 |
+| 8 | TanStack Query 세팅 + Polling 훅(`useRobotPolling`, `refetchInterval`)으로 mock 서버 연동, 응답을 `robotStore`에 반영 | 0.5초 주기로 store 갱신 확인 | ⬜ 예정 |
 | 9 | OpenLayers 격자(Grid) 배경 레이어 구현 | 지도 페이지에 격자 렌더링 | ⬜ 예정 |
 | 10 | 로봇 좌표 → Vector Layer 마커 렌더링 | 지도 위 로봇 점 표시 | ⬜ 예정 |
 | 11 | 로봇 이동 애니메이션(보간) 처리 | 좌표 변경 시 부드럽게 이동 | ⬜ 예정 |

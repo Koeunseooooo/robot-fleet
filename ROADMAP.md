@@ -23,8 +23,27 @@
 | 3D 렌더링 | @react-three/drei | ^10.7.7 | 설치만, 실사용은 Phase 2 |
 | 실시간 통신 | Polling → WebSocket 전환 | - | Phase 1에서 구현 예정 |
 | Mock 서버 | 별도 Node 프로세스 (`mock-server/`) | - | Phase 1 착수 시 스펙 확정 |
-| 상태관리 | Zustand 등 검토 | - | 미정, Phase 1에서 결정 |
+| 클라이언트 상태관리 | Zustand | 최신 | 실시간으로 계속 바뀌는 로봇 좌표/상태, 선택된 로봇, 2D/3D 뷰 모드, 알림 큐 등 UI/스트리밍 상태 담당 |
+| 서버 상태관리 | TanStack Query | 최신 | REST 호출(초기 로딩, Polling `refetchInterval`, Phase 3 명령 전송)의 fetch/캐싱/재검증 담당 |
 | Lint | ESLint (eslint-config-next) | ^9 | 기본 설정 |
+
+### 상태관리 역할 분리 (Zustand vs TanStack Query)
+
+Zustand와 TanStack Query는 둘 다 현재 React/Next.js 생태계에서 흔히 쓰이는 조합이며, 이 프로젝트에서는 데이터 성격에 따라 역할을 나눈다.
+
+- **TanStack Query**: "서버에 물어봐서 받아오는" 데이터. Phase 1 초반 Polling 단계에서 `refetchInterval`로 0.5초 주기 요청을 자연스럽게 처리하고, Phase 3의 원격 이동 명령 같은 1회성 요청(mutation)에도 사용.
+- **Zustand**: "계속 바뀌는 현재 상태"이자 화면 여러 곳(로봇 리스트, 2D 지도, 3D 뷰)에서 동시에 구독해야 하는 데이터. Phase 1 후반 WebSocket으로 전환되면, 소켓에서 오는 push 데이터는 TanStack Query의 요청/응답 모델과 잘 안 맞기 때문에 Zustand 스토어에 직접 반영한다. 2D/3D 뷰 모드, 선택된 로봇, 이벤트 알림 큐도 Zustand가 담당.
+
+즉 "REST로 가져오는 것"은 TanStack Query, "실시간으로 계속 흐르는 것"은 Zustand로 정리한다.
+
+### Mock 서버는 별도 백엔드다 (Next.js SSR/API Route와 다른 이유)
+
+Next.js는 SSR도 하고 API Route(`app/api/.../route.ts`)로 서버 코드도 실행할 수 있지만, 그건 전부 **요청이 와야 실행되고 응답하면 끝나는** 방식이다 (특히 Vercel 서버리스 배포에서는 요청마다 함수가 떴다 사라짐). 반면 mock 서버는:
+
+- 아무도 요청하지 않아도 0.5초마다 스스로 로봇 좌표/상태를 계속 바꾸는 시뮬레이션 상태를 들고 있어야 하고
+- WebSocket으로 여러 클라이언트에 지속적으로 push 해야 한다
+
+이건 요청-응답이 아니라 **계속 살아있는 프로세스**가 필요한 일이라 Next.js의 API Route(특히 Vercel 서버리스 함수)로는 구현하기 어렵다. 그래서 `mock-server/`는 Next.js 앱과 배포 단위가 분리된 별도의 Node.js 프로세스로 둔다 (로컬에서 `node mock-server`로 실행). 실제 로봇관제 시스템에서도 "로봇과 통신하는 백엔드"와 "그걸 보여주는 대시보드"가 분리되어 있다는 점에서 이 구조가 실무와도 맞닿아 있다.
 
 ---
 
