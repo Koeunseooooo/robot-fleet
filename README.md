@@ -10,6 +10,7 @@
 | [`docs/STRUCTURE.md`](./docs/STRUCTURE.md) | 디렉토리 구조와 설계 원칙 — "어디에 무엇을 두는지" |
 | [`docs/WBS.md`](./docs/WBS.md) | 하루 30분 단위로 쪼갠 작업 목록 — "오늘 뭘 하는지" |
 | [`docs/FEATURES.md`](./docs/FEATURES.md) | WBS 각 작업과 대응하는 기능 명세서 — "그 작업이 정확히 뭘 만드는지" (입출력, 상태, 완료 기준) |
+| [`docs/ROUTINE.md`](./docs/ROUTINE.md) | 매일 작업 루틴 — 세션 시작(WBS 알림)부터 종료(Obsidian 기록·git push)까지 흐름과 담당 스킬/훅 |
 | `README.md` (이 파일) | 프로젝트 소개, 실행 방법 — 저장소 진입점 |
 | [`AGENTS.md`](./AGENTS.md) (`CLAUDE.md`에서 참조) | AI 코딩 에이전트용 컨텍스트 — 이 Next.js 버전의 학습 데이터와 다른 breaking changes 안내 |
 

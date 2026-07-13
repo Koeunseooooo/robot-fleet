@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/next-wbs-task.sh\"",
+            "timeout": 10,
+            "statusMessage": "다음 WBS 작업 확인 중..."
+          }
+        ]
+      }
+    ]
+  }
+}
