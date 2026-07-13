@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mini-Fleet: Light-weight Robot Control System
+
+로봇관제 팀 합류를 목표로 진행하는 개인 사이드 프로젝트. Next.js 기반으로 2D 지도 → 3D 뷰어 → 관제/제어 순서로 확장한다.
+
+## 문서 구성
+
+| 문서 | 역할 |
+| --- | --- |
+| [`ROADMAP.md`](./ROADMAP.md) | Phase 1~3 목표, 핵심 기능, 완료 기준, 기술 스택 — "무엇을, 왜, 어떤 순서로" 만드는지 |
+| [`STRUCTURE.md`](./STRUCTURE.md) | 디렉토리 구조와 설계 원칙 — "어디에 무엇을 두는지" |
+| `README.md` (이 파일) | 프로젝트 소개, 실행 방법 — 저장소 진입점 |
+| [`AGENTS.md`](./AGENTS.md) (`CLAUDE.md`에서 참조) | AI 코딩 에이전트용 컨텍스트 — 이 Next.js 버전의 학습 데이터와 다른 breaking changes 안내 |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[http://localhost:3000](http://localhost:3000) 에서 확인.

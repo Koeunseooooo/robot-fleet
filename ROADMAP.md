@@ -8,16 +8,23 @@
 - **핵심 가치**: 실시간 데이터 시각화 + 인터랙션 + 관제/제어 스토리라인
 - **진행 방식**: Phase 1 → 2 → 3 순서로, 각 Phase는 독립적으로 데모 가능한 상태를 목표로 함
 
-## 기술 스택 (예정)
+## 기술 스택
 
-| 영역 | 기술 |
-| --- | --- |
-| 프레임워크 | Next.js |
-| 2D 지도 | OpenLayers |
-| 3D 렌더링 | Three.js (React Three Fiber) |
-| 실시간 통신 | Polling → WebSocket 전환 |
-| Mock 서버 | 별도 mock 서버 (좌표/상태/이벤트 발행) |
-| 상태관리 | (Phase 진행하며 필요 시 결정 — Zustand 등 검토) |
+2026-07-13 기준, Next.js 프로젝트에 실제로 설치하고 `/verify` 테스트 페이지에서 렌더링까지 확인한 버전이다. (상세 검증 로그는 Obsidian TIL `2026-07-13.md` 참고)
+
+| 영역 | 기술 | 버전 | 상태 |
+| --- | --- | --- | --- |
+| 프레임워크 | Next.js (App Router) | 16.2.10 | ✅ 검증 완료 |
+| 런타임/UI | React / React DOM | 19.2.4 | ✅ 검증 완료 |
+| 언어 | TypeScript | ^5 | ✅ 검증 완료 |
+| 2D 지도 | OpenLayers (`ol`) | ^10.9.0 | ✅ 검증 완료 (타일 렌더링 확인) |
+| 3D 렌더링 | Three.js | ^0.185.1 | ✅ 검증 완료 (큐브 렌더링 확인) |
+| 3D 렌더링 | @react-three/fiber | ^9.6.1 | ✅ 검증 완료 |
+| 3D 렌더링 | @react-three/drei | ^10.7.7 | 설치만, 실사용은 Phase 2 |
+| 실시간 통신 | Polling → WebSocket 전환 | - | Phase 1에서 구현 예정 |
+| Mock 서버 | 별도 Node 프로세스 (`mock-server/`) | - | Phase 1 착수 시 스펙 확정 |
+| 상태관리 | Zustand 등 검토 | - | 미정, Phase 1에서 결정 |
+| Lint | ESLint (eslint-config-next) | ^9 | 기본 설정 |
 
 ---
 
