@@ -26,6 +26,10 @@
 | 클라이언트 상태관리 | Zustand | 최신 | 실시간으로 계속 바뀌는 로봇 좌표/상태, 선택된 로봇, 2D/3D 뷰 모드, 알림 큐 등 UI/스트리밍 상태 담당 |
 | 서버 상태관리 | TanStack Query | 최신 | REST 호출(초기 로딩, Polling `refetchInterval`, Phase 3 명령 전송)의 fetch/캐싱/재검증 담당 |
 | Lint | ESLint (eslint-config-next) | ^9 | 기본 설정 |
+| 컴포넌트 문서화 | Storybook (`@storybook/nextjs-vite`) | ^10.5.0 | ✅ 검증 완료 (`src/components/ui/Button` 스토리 렌더링 확인) |
+| FE 테스트 | Vitest + React Testing Library | - | 미도입, Phase 1 진행 중 도입 예정 (`docs/WBS.md` Day 18) |
+
+> Storybook의 `@storybook/addon-vitest`가 스토리 기반 브라우저 테스트용 Vitest(`vitest.config.ts`, projects: `storybook`)를 이미 함께 설치해뒀다. 이건 컴포넌트를 브라우저에서 렌더링해 확인하는 용도이고, 별도로 도입할 Vitest + React Testing Library는 jsdom 환경에서 로직/렌더링을 빠르게 단위 테스트하는 용도라 서로 보완 관계다 (`vitest.config.ts`에 `unit` project를 추가하는 방식으로 함께 쓴다).
 
 ### 상태관리 역할 분리 (Zustand vs TanStack Query)
 
